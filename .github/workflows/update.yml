@@ -10,14 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.10
-      - run: python update.py
-      - run: |
+          python-version: "3.10"   # IMPORTANT FIX
+
+      - name: Run update script
+        run: python update.py
+
+      - name: Commit changes
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data.csv
-          git commit -m "Auto update"
+          git commit -m "Auto update data.csv" || echo "No changes"
           git push
