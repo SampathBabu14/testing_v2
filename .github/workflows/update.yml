@@ -1,4 +1,4 @@
-name: Update Dashboard Every 2 Hours
+name: Update Dashboard Every 6 minutes
 
 on:
   schedule:
