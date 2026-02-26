@@ -1,5 +1,8 @@
 name: Update Dashboard Every 6 minutes
 
+permissions:
+  contents: write
+  
 on:
   schedule:
     - cron: "*/6 * * * *"
